@@ -1,0 +1,13 @@
+{% extends 'blogapp/index.html'%}
+{% block parentblock%}
+<div class="container">
+{% load crispy_forms_tags %}
+<form method="post">
+  {{userform|crispy}}
+  {%csrf_token%}
+  <input type="submit" name="" value="save"/>
+
+</form>
+</div>
+
+{%endblock%}

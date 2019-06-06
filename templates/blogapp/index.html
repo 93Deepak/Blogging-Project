@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">BLOG</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="{% url 'home' %}">HOME</a></li>
+      <li><a href="{% url 'post' %}">PostBlog</a></li>
+      <li><a href="{% url 'view' %}">View all Blog</a></li>
+    </ul>
+    <ul class='nav navbar-nav navbar-right'>
+      {%if request.user.is_authenticated is True %}
+        <li class="active"><a href="">WELCOME{{request.user}}</li>
+        <li><a href="{% url 'logout' %}">logout</a></li>
+      {%endif%}
+
+
+      {%if request.user.is_authenticated is False %}
+        <li><a href="{% url 'sign' %}">Signup</a></li>
+       <li><a href="{% url 'login' %}">Login</a></li>
+      {%endif%}
+    </ul>
+  </div>
+</nav>
+{% block parentblock %}
+
+{%endblock%}
+
+  </body>
+</html>

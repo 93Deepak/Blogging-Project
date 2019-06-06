@@ -1,0 +1,64 @@
+{% extends 'blogapp/index.html' %}
+{% block parentblock %}
+<div class="container" align="center">
+
+  {% if bloglist%}
+
+{% for blog in bloglist %}
+  <div class="well">
+      <div class="media">
+      	<a class="pull-left" href="#">
+        <img src='{{ blog.pic.url }}' height="100" width="150" class="media-object" />
+
+  		</a>
+  		<div class="media-body">
+    		<h4 class="media-heading">{{blog.title}}</h4>
+
+          <p>{{blog.blog}}</p>
+          <ul class="list-inline list-unstyled">
+  			<li><span><i class="glyphicon glyphicon-calendar"></i> {{blog.upload_date | timesince}}</span></li>
+            <li>|</li>
+            <span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
+            <li>|</li>
+            <li>
+               <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+            </li>
+<p class="text-right">By {{blog.author}}</p>
+			</ul>
+       </div>
+    </div>
+  </div>
+  <!-- {%for blg in bloglist%}
+  <div class="well well-lg">
+          <div align="center">
+          <p>TITLE-{{blg.title}}</p>
+          </div>
+        <div align="left">
+<img src="{{blg.pic.url}}" height="100" width="150" />
+        </div>
+
+          <div align="center">
+            <p>{{blg.blog}}</p>
+            </div>
+            <div align="center">
+              {{blg.upload_date | timesince}}
+            </div>
+
+              <div align="right">
+                <p>BY-{{blg.author}}</p>
+              </div>
+
+                </div>
+    {%endfor%} -->
+    {%endfor%}
+    {%else%}
+    <h2>No record found</h2>
+    {%endif%}
+  </div>
+
+
+{%endblock%}
